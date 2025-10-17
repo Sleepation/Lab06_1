@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.List;
 
 public class SalarySaver extends Application {
@@ -47,9 +48,14 @@ public class SalarySaver extends Application {
         });
 
         btDone.setOnAction(e -> {
-            List<Integer> salaries = FileInteractor.returner();
+            List<Integer> salaries = FileInteractor.returner(i);
+            salaryResults.setText("Salaries: ");
+            for(int i = 0; i < salaries.size() - 1; i++){
+                salaryResults.setText(salaryResults.getText() + salaries.get(i) + ", ");
+            }
+            salaryResults.setText(salaryResults.getText() + salaries.getLast());
 
-            salaryResults.setText("Salaries: " + salaries
+            salaryResults.setText(salaryResults.getText()
             + "\nCount: " + i
             + "\nTotal: " + sum(salaries)
             + "\nAverage: " + average(salaries));
@@ -57,7 +63,7 @@ public class SalarySaver extends Application {
 
         vBox.getChildren().addAll(numberOfSalariesAdded, btDone, salaryResults);
 
-        primaryStage.setScene(new Scene(vBox, 200, 220));
+        primaryStage.setScene(new Scene(vBox, 200, 200));
         primaryStage.setTitle("Salary Saver");
         primaryStage.show();
     }
@@ -75,7 +81,12 @@ public class SalarySaver extends Application {
         return sum(salaries)/salaries.size();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args){
+        File data = new File("salaries.dat");
+        if(data.exists()){
+            data.delete();
+        }
+        launch();
+
     }
 }
