@@ -5,4 +5,6 @@ module org.example.lab06_1 {
 
     opens org.example.lab06_1 to javafx.fxml;
     exports org.example.lab06_1;
+    opens Lab6One to javafx.fxml;
+    exports Lab6One;
 }
