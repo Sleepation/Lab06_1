@@ -1,12 +1,14 @@
 package Lab6One;
 
-import java.io.File;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileInteractor {
-    public static void retrieve(int salary) {
+    public static void retriever(int salary) {
         try {FileOutputStream fos = new FileOutputStream("salaries.dat", true);
             fos.write(salary);
             fos.close();
@@ -17,7 +19,7 @@ public class FileInteractor {
         }
     }
 
-    public List<Integer> returner() {
+    public static List<Integer> returner() {
         try {
             List<Integer> salaries = new ArrayList<>();
 
