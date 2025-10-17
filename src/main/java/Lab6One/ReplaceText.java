@@ -29,7 +29,7 @@ public class ReplaceText {
         try (
                 // Create input and output files
                 Scanner input = new Scanner(sourceFile);
-                PrintWriter output = new PrintWriter(targetFile);
+                PrintWriter output = new PrintWriter(targetFile)
         ) {
             while (input.hasNext()) {
                 String s1 = input.nextLine();

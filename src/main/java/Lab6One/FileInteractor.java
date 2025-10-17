@@ -1,17 +1,13 @@
 package Lab6One;
 
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileInteractor {
     public static void retriever(int salary) {
-        try {FileOutputStream fos = new FileOutputStream("salaries.dat", true);
-            fos.write(salary);
-            fos.close();
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream("salaries.dat", true))) {
+            dos.writeInt(salary);
         }
 
         catch (IOException ex) {
@@ -20,23 +16,21 @@ public class FileInteractor {
     }
 
     public static List<Integer> returner() {
-        try {
-            List<Integer> salaries = new ArrayList<>();
+        List<Integer> salaries = new ArrayList<>();
 
-            FileInputStream fis = new FileInputStream("salaries.dat");
-            DataInputStream dis = new DataInputStream(fis);
-            while(dis.read() != -1) {
+        try (DataInputStream dis = new DataInputStream(new FileInputStream("salaries.dat"))) {
+            while(true) {
                 salaries.add(dis.readInt());
             }
-
-            dis.close();
-            return salaries;
         }
 
+        catch (EOFException e) {
+            // End of file reached, normal case
+        }
         catch (IOException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
 
-        return null;
+        return salaries;
     }
 }

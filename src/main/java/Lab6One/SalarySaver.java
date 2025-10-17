@@ -45,7 +45,7 @@ public class SalarySaver extends Application {
         btDone.setOnAction(e -> {
             List<Integer> salaries = FileInteractor.returner();
 
-            salaryResults.setText("Salaries: " + salaries.toString()
+            salaryResults.setText("Salaries: " + salaries
             + "\nCount: " + i
             + "\nTotal: " + sum(salaries)
             + "\nAverage: " + average(salaries));
@@ -53,7 +53,7 @@ public class SalarySaver extends Application {
 
         vBox.getChildren().addAll(numberOfSalariesAdded, btDone, salaryResults);
 
-        primaryStage.setScene(new Scene(vBox, 200, 200));
+        primaryStage.setScene(new Scene(vBox, 200, 220));
         primaryStage.setTitle("Salary Saver");
         primaryStage.show();
     }
