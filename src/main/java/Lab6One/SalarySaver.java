@@ -45,13 +45,9 @@ public class SalarySaver extends Application {
 
         btDone.setOnAction(e -> {
             List<Integer> salaries = FileInteractor.returner(i);
-            salaryResults.setText("Salaries: ");
-            for(int i = 0; i < salaries.size() - 1; i++){
-                salaryResults.setText(salaryResults.getText() + salaries.get(i) + ", ");
-            }
-            salaryResults.setText(salaryResults.getText() + salaries.getLast());
 
-            salaryResults.setText(salaryResults.getText()
+
+            salaryResults.setText("Salaries: " + salaries
             + "\nCount: " + i
             + "\nTotal: " + sum(salaries)
             + "\nAverage: " + average(salaries));
