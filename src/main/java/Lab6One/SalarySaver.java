@@ -10,6 +10,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class SalarySaver extends Application {
+    private int i = 0;
+
     @Override
     public void start(Stage primaryStage){
         VBox vBox = new VBox();
@@ -21,6 +23,8 @@ public class SalarySaver extends Application {
         vBox.getChildren().add(textField);
 
         Button btAddSalary = new Button("Add Salary");
+
+
         vBox.getChildren().add(btAddSalary);
 
         Text numberOfSalariesAdded = new Text();
@@ -28,6 +32,18 @@ public class SalarySaver extends Application {
         Button btDone = new Button("Done");
 
         Text salaryResult = new Text();
+
+
+        btAddSalary.setOnAction(e -> {
+            if(textField.getText().matches("\\d+")){
+                FileInteractor.retrieve(Integer.parseInt(textField.getText()));
+                numberOfSalariesAdded.setText(++i + " Salary added to your file");
+            }
+        });
+
+        btDone.setOnAction(e -> {
+
+        });
 
         vBox.getChildren().addAll(numberOfSalariesAdded, btDone, salaryResult);
 
