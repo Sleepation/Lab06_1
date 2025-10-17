@@ -70,4 +70,8 @@ public class SalarySaver extends Application {
     public int average(List<Integer> salaries) {
         return sum(salaries)/salaries.size();
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
