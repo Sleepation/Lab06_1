@@ -1,3 +1,7 @@
+/**
+ * Santiago A. Bejarano P., 2430065
+ */
+
 package Lab6One;
 
 import javafx.application.Application;
