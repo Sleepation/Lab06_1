@@ -37,7 +37,7 @@ public class FileInteractor {
      * A data input stream is initialized with a file input stream in its constructor.
      * The data input stream will read each int value from the dat file through the file input stream.
      * Each value is added to the array list.
-     * The process stops once the recorded number of salaries is reached by the loop.
+     * The process is stopped by an EOF exception.
      * The list is returned. All IO exceptions are handled within.
      * @param numberOfSalaries
      * @return
