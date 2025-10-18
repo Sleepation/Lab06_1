@@ -83,7 +83,7 @@ public class SalarySaver extends Application {
         //Add number of salaries, done button, and result text to the vBox
         vBox.getChildren().addAll(numberOfSalariesAdded, btDone, salaryResults);
 
-        primaryStage.setScene(new Scene(vBox, 200, 200)); //Create and set scene to stage
+        primaryStage.setScene(new Scene(vBox, 200, 220)); //Create and set scene to stage
         primaryStage.setTitle("Salary Saver"); //Set title of stage
         primaryStage.show(); //Show stage
     }
