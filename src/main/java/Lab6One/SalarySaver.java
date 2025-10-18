@@ -82,11 +82,6 @@ public class SalarySaver extends Application {
     }
 
     public static void main(String[] args){
-        File data = new File("salaries.dat");
-        if(data.exists()){
-            data.delete();
-        }
         launch();
-
     }
 }
