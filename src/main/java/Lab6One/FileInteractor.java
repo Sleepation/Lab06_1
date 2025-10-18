@@ -1,3 +1,8 @@
+/**
+ * Santiago A. Bejarano P., 2430065
+ * Thomas A., 2430853
+ */
+
 package Lab6One;
 
 import java.io.*;
