@@ -17,7 +17,6 @@ public class FileInteractor {
         try {
             FileOutputStream fos = new FileOutputStream("salaries.dat", true);
             DataOutputStream dos = new DataOutputStream(fos);
-            dos.flush();
             dos.writeInt(salary);
             dos.close();
             fos.close();
@@ -39,22 +38,17 @@ public class FileInteractor {
      * @return
      */
     public static List<Integer> returner(int numberOfSalaries) {
-        try {
-            List<Integer> salaries = new ArrayList<>();
+        List<Integer> salaries = new ArrayList<>();
+        try (DataInputStream dis = new DataInputStream(new FileInputStream("salaries.dat"))){
 
-            FileInputStream fis = new FileInputStream("salaries.dat");
-            DataInputStream dis = new DataInputStream(fis);
-
-
-            for(int i = 0; i < numberOfSalaries; i++){
+            while(true) {
                 salaries.add(dis.readInt());
             }
 
-            dis.close();
+        } catch (EOFException e) {
+            // End of file reached, normal case
             return salaries;
-        }
-
-        catch (IOException ex) {
+        } catch (IOException ex) {
             System.out.println("Error: " + ex.getMessage());
         }
 

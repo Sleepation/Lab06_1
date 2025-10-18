@@ -56,7 +56,7 @@ public class SalarySaver extends Application {
             salaryResults.setText(salaryResults.getText() + salaries.getLast());
 
             salaryResults.setText(salaryResults.getText()
-            + "\nCount: " + i
+            + "\nCount: " + salaries.size()
             + "\nTotal: " + sum(salaries)
             + "\nAverage: " + average(salaries));
         });
